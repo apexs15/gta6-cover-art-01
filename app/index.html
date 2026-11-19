@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Neon Coast turns your photos and a caption into GTA 6-style multi-panel cover art, offline in your browser.">
+<title>Neon Coast — Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<noscript><p class="noscript">Neon Coast needs JavaScript to draw your cover.</p></noscript>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">◆</span>
+    <span class="brand-name">Neon Coast</span>
+    <span class="brand-sub">GTA 6-style cover maker — photos never leave your machine</span>
+  </div>
+  <button id="exportBtn" class="export-btn" type="button">Export PNG</button>
+</header>
+<main class="workspace">
+  <section class="stage">
+    <canvas id="preview" width="1080" height="1080" aria-label="Cover preview"></canvas>
+    <p class="stage-hint">Click a panel to select it. Drag to move its photo. Scroll to zoom. Drop image files anywhere to add your own photos.</p>
+  </section>
+  <aside class="controls">
+    <section class="control-group">
+      <h2>Photos</h2>
+      <label class="file-btn" for="fileInput">Add photos from your machine</label>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      <div class="sample-row">
+        <button id="sampleBoulevard" type="button">+ Boulevard sample</button>
+        <button id="samplePier" type="button">+ Pier sample</button>
+      </div>
+      <p id="photoCount" class="muted">0 photos loaded</p>
+    </section>
+    <section class="control-group">
+      <h2>Panels</h2>
+      <div id="panelList" class="panel-list"></div>
+      <div class="row">
+        <button id="fillBtn" type="button">Next photo in panel</button>
+        <button id="centerBtn" type="button">Reset photo</button>
+      </div>
+      <label class="slider-label" for="zoomRange">Zoom
+        <input id="zoomRange" type="range" min="100" max="400" value="100">
+      </label>
+    </section>
+    <section class="control-group">
+      <h2>Layout &amp; grade</h2>
+      <label class="field">Layout
+        <select id="layoutSel"></select>
+      </label>
+      <label class="field">Colour grade
+        <select id="gradeSel"></select>
+      </label>
+      <label class="field">Export size
+        <select id="sizeSel"></select>
+      </label>
+    </section>
+    <section class="control-group">
+      <h2>Caption</h2>
+      <label class="field">Title
+        <input id="titleInput" type="text" value="Neon Coast" maxlength="40">
+      </label>
+      <label class="field">Subtitle
+        <input id="subtitleInput" type="text" value="Vice City Nights" maxlength="60">
+      </label>
+    </section>
+    <p class="muted fine-print">Original artwork made with this tool. Not affiliated with Rockstar Games; no Rockstar logo, artwork or font is used.</p>
+  </aside>
+</main>
+<script type="module" src="./src/editor.js"></script>
+</body>
+</html>
